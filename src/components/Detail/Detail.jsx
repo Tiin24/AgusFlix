@@ -30,7 +30,7 @@ function Detail() {
   }, [movieID]);
   return (
     <>
-      {!token && navigate("/")}
+      {/* {!token && navigate("/")} */}
       {movie && (
         <>
           <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-5">
@@ -40,7 +40,6 @@ function Detail() {
                 src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                 alt={movie.original_title}
               />
-              <h1>agregar a ...</h1>
             </div>
             <div className="">
               <h1 className="text-2xl text-black text-">

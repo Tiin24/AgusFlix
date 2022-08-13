@@ -4,9 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 import swal from "@sweetalert/with-react";
 
 function Listado(props) {
-  const token = localStorage.getItem("token");
+  // const token = localStorage.getItem("token");
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   
   const [movieList, setMovieList] = useState([]);
 
@@ -39,7 +39,7 @@ function Listado(props) {
 
   return (
     <>
-      {!token && navigate("/")}
+      {/* {!token && navigate("/")} */}
       <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-5">
         {movieList.map((movie, id) => {
           return (
@@ -90,18 +90,6 @@ function Listado(props) {
                     Sin votos
                   </span>
                 )}
-              </div>
-              <div className="px-6 py-4">
-                {movie.genre_ids.map((genre, id) => {
-                  return (
-                    <span
-                      key={id}
-                      className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 gap-5 "
-                    >
-                      #{genreList.find((item) => item.id === genre).name}
-                    </span>
-                  );
-                })}
               </div>
             </div>
           );

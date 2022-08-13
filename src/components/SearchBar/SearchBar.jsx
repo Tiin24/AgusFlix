@@ -1,6 +1,9 @@
 import React from "react";
 import swal from "@sweetalert/with-react";
 import { useNavigate } from "react-router-dom";
+import {
+  FiSearch
+} from "react-icons/fi";
 function SearchBar() {
 
   const navigate = useNavigate()
@@ -30,7 +33,7 @@ function SearchBar() {
           type="submit"
           className="absolute inset-y-0 right-0 flex items-center px-2 text-gray-500"
         >
-          buscar
+          <FiSearch />
         </button>
       </form>
     </div>

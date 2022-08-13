@@ -8,6 +8,7 @@ import Footer from "./components/Footer/Footer";
 import Detail from "./components/Detail/Detail";
 import Results from "./components/Results/Results";
 import Favoritos from "./components/Favoritos/Favoritos";
+import swal from "@sweetalert/with-react";
 
 function App(props) {
   const [favoritos, setFavoritos] = React.useState([]);
@@ -49,14 +50,14 @@ function App(props) {
     const index = tempsFavs.find((movie) => movie.id === id);
     if (index === undefined) {
       tempsFavs.push(movieData);
-      console.log(tempsFavs, "tempsFavs");
       localStorage.setItem("favs", JSON.stringify(tempsFavs));
       setFavoritos(tempsFavs);
-      console.log("agregado");
+      swal("Agregado a favoritos", "", "success");
     } else {
       let remove = tempsFavs.filter((movie) => movie.id !== id);
       localStorage.setItem("favs", JSON.stringify(remove));
       setFavoritos(remove);
+      swal("Eliminado de favoritos", "", "success");
     }
   };
 

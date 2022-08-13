@@ -3,15 +3,15 @@ import {Link} from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
 function Favoritos(props) {
-  const token = localStorage.getItem("token");
+  // const token = localStorage.getItem("token");
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   
 
   return (
     <>
-      {!token && navigate("/")}
+      {/* {!token && navigate("/")} */}
       <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-5 h-screen">
         {props.favoritos.map((movie, id) => {
           return (

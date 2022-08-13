@@ -3,41 +3,41 @@
 import axios from "axios";
 import React from "react";
 import swal from "@sweetalert/with-react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
   const history = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // eslint-disable-next-line no-useless-escape
-    let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    const email = e.target.email;
-    const password = e.target.password;
-    if (email.value === "" || password.value === "") {
-      swal("Error", "Please fill all fields", "error");
-    }
-    if (!regexEmail.test(email.value)) {
-      swal("Error", "Please enter a valid email", "error");
-    }
-    axios
-      .post("http://challenge-react.alkemy.org", {
-        email: email.value,
-        password: password.value,
-      })
-      .then((res) => {
-        swal("Success", "You are logged in", "success");
-        const tokenRecivido = res.data.token;
-        localStorage.setItem("token", tokenRecivido);
-        history("/listado");
-      });
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   // eslint-disable-next-line no-useless-escape
+  //   let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  //   const email = e.target.email;
+  //   const password = e.target.password;
+  //   if (email.value === "" || password.value === "") {
+  //     swal("Error", "Please fill all fields", "error");
+  //   }
+  //   if (!regexEmail.test(email.value)) {
+  //     swal("Error", "Please enter a valid email", "error");
+  //   }
+  //   axios
+  //     .post("http://challenge-react.alkemy.org", {
+  //       email: email.value,
+  //       password: password.value,
+  //     })
+  //     .then((res) => {
+  //       swal("Success", "You are logged in", "success");
+  //       const tokenRecivido = res.data.token;
+  //       localStorage.setItem("token", tokenRecivido);
+  //       history("/listado");
+  //     });
+  // };
 
   return (
     <>
       <div className="bg-white flex items-center justify-center h-screen w-screen">
         <form
-          onSubmit={handleSubmit}
+          // onSubmit={handleSubmit}
           className="bg-gray-800  shadow-md rounded px-8 pt-6 pb-8 mb-4"
         >
           <div className="mb-4">
@@ -66,12 +66,15 @@ function Login() {
             </p>
           </div>
           <div className="flex items-center justify-between">
+            
+            <Link to='/listado'>
             <button
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="submit"
             >
               Sign In
             </button>
+            </Link>
             <a
               className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
               href="#"
